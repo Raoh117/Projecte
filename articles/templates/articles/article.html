@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+   {% block title %} Vinil informació {% endblock %}
+
+{% block extra-head %} 
+    {% load static %}
+      <script src="{% static "js/vinilInfo.js" %}"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+      <script src="script.js"></script>
+      <link rel="stylesheet" href="{% static "css/style.css" %}">
+      <link rel="stylesheet" href="{% static "css/usuari_info.css" %}">
+{% endblock %}
+
+{% block content %}
+<!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url "articles:index" %}"> Vinylshare </a>
+        </div>
+        
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#"> Inici </a></li>
+            <li><a href="#"> Recomanats </a></li>
+            <li><a href="#"> Últims </a></li>
+            <li><a href="#"> Contacte </a></li>
+         </ul>
+         
+          <!-- USUARI -->
+          {% if user.is_authenticated %}
+          <div id="user">
+                <ul class="nav navbar-nav"> 
+                      <li><a href="{% url "usuaris:menu_usuari" %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user }}</a></li></ul>
+                  <ul class="nav navbar-nav"> 
+                     <li><a href="{% url "usuaris:logout" %}"><span title="Logout" class="glyphicon glyphicon-off" aria-hidden="true"></span></a></li>
+                </ul>     
+          </div>
+          {% else %}
+            <div id="user"><ul class="nav navbar-nav"> <li><a href="{% url "usuaris:login" %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li></ul></div>
+          {% endif %}
+          
+         </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+<!--INFORMACIÓ DEL VINIL -->
+<div class="container theme-showcase info-usr" role="main">
+  
+    <div id="contingut-reco">
+    
+      <div class="conti-usuari">
+       <div id="imatge">
+        <img src="{% if article.image %}{{ article.image.url }}{% endif%}" class="dsk-img" >
+       </div>
+     </div>
+        <div class="desc">
+         <div id="content-login">
+           <ul class="list-group">
+            <li class="list-group-item"><h1> {{ article.nom }} </h1></li>
+            <li class="list-group-item"><h3> {{ article.consola }} </h3> <h3> {{ article.companyia }} </h3></li>  
+            <li class="list-group-item"> {{ article.preu }} € </li>
+            <li class="list-group-item"> {{ article.detalls}} </li>
+            </ul>
+          </div>       
+          <div class="user">
+            <div class="img-user"><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></div>
+            <div class="name-user"><a href=""><small>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </small></a></div>
+            <div id="valoracio">
+            <form>
+              <p class="clasificacion">
+                <input id="radio1" name="estrellas" value="5" type="radio">
+                <label for="radio1">★</label>
+                <input id="radio2" name="estrellas" value="4" type="radio">
+                <label for="radio2">★</label>
+                <input id="radio3" name="estrellas" value="3" type="radio">
+                <label for="radio3">★</label>
+                <input id="radio4" name="estrellas" value="2" type="radio">
+                <label for="radio4">★</label>
+                <input id="radio5" name="estrellas" value="1" type="radio">
+                <label for="radio5">★</label>
+              </p>
+            </form>
+            </div>
+            
+            <button type="button" class="btn btn-success boto-cntc">Contactar</button>
+            <a href="{% url "articles:eliminar_article" article.pk %}"><button type="button" class="btn btn-success boto-cntc">Esborrar</button></a>
+          </div>
+        </div>
+          
+      </div>
+      
+     </div>
+ 
+
+{% endblock %}

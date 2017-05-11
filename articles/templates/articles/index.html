@@ -1,0 +1,250 @@
+{% extends "base.html" %}
+    {% if messages %}
+        <!--<ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>-->
+    {% endif %}
+    
+    {% block title %} Botiga o algu {% endblock %}
+
+{% block extra-head %}
+    {% load static %}  
+    <script src="{% static "js/index.js" %}"></script>
+    <script src="../../dist/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="../../dist/css/index.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tienda</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Inici</a></li>
+            <li><a href="#"> Consoles </a></li>
+            <li><a href="#"> Videojocs </a></li>
+            <li><a href="#"> Accesoris </a></li>
+            {% if user.Usuari.admin %}<li><a href="{% url "articles:crear_article" %}"> Crear Article </a></li>{% endif %}
+            <li><div class="input-group input-header">
+            <!--formulari - METHOD:GET --> 
+            <form action=="#"> " method="get" >
+                
+                <div class="input-group-btn">
+                    <span class=".glyphicon .glyphicon-search"></span>
+                    <input type="text" id="input-titol" name="q" class="form-control" placeholder="Que busques?" aria-label="...">
+                 <!--SELECCIÓ -->                    
+                  <!--<select name="tipus_de_recerca" id="select-index" onChange="this.form.submit()">
+                    <option value="Busca per..." disabled default selected>Busca per...</option>
+                    <option value="titol">Titol</option>
+                    <option value="grup">Grup</option>
+                    <option value="genere">Genere</option>-->
+                 </select>
+                </div>
+            </form>
+            <!--Missatge errors -->                 
+             {% if field.errors %}		        	
+    	     <div class="alert alert-danger">
+    	        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    	        <ul>
+    	          {% for error in field.errors%}
+    	              <li>{{ error }}</li>
+    		      {% endfor %}
+                </ul>
+         	</div>
+            {% endif %}
+        		        
+            </div></li>
+         </ul>
+         
+        <!--comprovem autenticació usuari-->
+           {% if user.is_authenticated %}
+            <div id="user">
+              <ul class="nav navbar-nav"> 
+                    <li><a href="{% url "usuaris:menu_usuari"%}" ><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user }} </a></li></ul>
+                <ul class="nav navbar-nav"> 
+                   <li><a href="{% url "usuaris:logout" %}"> <span title="Logout" class="glyphicon glyphicon-off" aria-hidden="true"></span></a></li>
+              </ul>     
+            </div>
+            {% else %}
+            <div id="user">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url "usuaris:login" %}"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>
+                </ul>
+            </div>
+            {% endif %}
+
+         </div><!--/.nav-collapse -->
+        </div> 
+     </nav>
+
+    <div class="container theme-showcase" role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+         <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+        
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="../../../dist/images/DOOM.png" alt="Los Angeles">
+            </div>
+        
+            <div class="item">
+              <img src="../../../dist/images/BOTW.jpg" alt="Chicago">
+            </div>
+        
+            <div class="item">
+              <img src="../../../dist/images/nier_auomata.jpg" alt="New York">
+            </div>
+          </div>
+        
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      <div id="contingut">
+        <div class="page-header items">
+          <!--cercador -->
+        </div>
+        <div class="item" data-usuari="nose">
+             <img src="http://www.logiagamer.com/assets/images/imagenes/juegos/ps4/the-witcher-3-ps4.jpg"  class="img-responsive hq" >
+               
+              <div class="preu" id="preu1">60€ </div>
+              <div class="titol" id="titol1"><a href="#"><h6> The Witcher 3 </h6></a></div>
+        </div>
+         <!--{% for disc in llista_discos %}
+         <div class="item" data-usuari="{{ disc.usuari_venedor.usuari }}">
+             <img src="{%if disc.image %}{{disc.image.url}}{% endif%}"  class="img-responsive hq" >
+               
+              <div class="preu" id="preu1">{{ disc.preu }} € </div>
+
+              <div class="item-body">
+                <div class="titol" id="titol1"><a href="{% url "discos:vinil_informacio" disc.pk %}"><h6> {{ disc.titol }} </h6></a></div>
+                <div class="user">
+                  <div class="img-user"><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></div>
+                  <div class="name-user" ><a href="{% url "discos:usuari_informacio" disc.usuari_venedor.id %}"><small> {{ disc.usuari_venedor.usuari }}</small></a></div>
+                </div>
+             </div>
+             
+            <a href="{% url "usuaris:crear_missatge" disc.pk %}" class="btn btn-success" role="button">Contactar</a>
+            </div>
+        {% endfor %}  -->
+        {% for article in llista_articles %}
+         <div class="item"> 
+             <a href="{% url "articles:article" article.pk %}"><img src="{%if article.imatge %}{{article.imatge.url}}{% endif%}"  class="img-responsive hq" ></a>
+               
+              <div class="preu" id="preu1">{{ article.preu }} € </div>
+
+              <div class="item-body">
+                <div class="titol" id="titol1"><a href="#"><h6> {{ article.nom }} </h6></a></div>
+                <div class="user">
+                </div>
+             </div>
+            </div>
+        {% endfor %}
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+     <!-- Footer -->
+    <nav class="navbar navbar-inverse footer">
+      <div id="concurs">
+        <img src="/dist/images/puntcat.png" alt="puntcat" class="img-responsive fooo" id="puntcat">
+        <img src="/dist/images/dinahosting.jpg" alt="dinahosting" class="img-responsive fooo" id="dina">
+      </div>
+     <div id="adalt">
+         <span class="glyphicon glyphicon-menu-up" title="amunt" aria-hidden="true"></span>
+     </div>
+     <!--<div id="peu">
+       
+       <div id="foot">
+          <dl class="dl-horizontal">
+          </dl>
+        </div>
+        <div id="drets">
+        </div>
+     </div>-->
+     
+     {% if user.is_authenticated %}
+     <div id="contact" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title titol-modal">Enviar missatge a </h4>
+                        </div>
+                        <div class="modal-body">
+                            <textarea rows="4" cols="50"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel·lar</button>
+                            <button id="YES" type="button" class="okReservar btn btn-success" data-dismiss="modal">Enviar</button>
+                        </div>
+                    </div>
+
+                </div>
+    </div>
+    {% else %}
+    <div id="contact" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="form-group">
+                              <center><font color="black">Inicia sessió per contactar amb aquest usuari!</font></center>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Sortir</button>
+                            <a href="#"> <button id="YES" type="button" class="okReservar btn btn-success">Loguejar-se</button></a>
+                            
+                        </div>
+                    </div>
+
+                </div>
+    </div>
+    {% endif %}
+    </nav>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../dist/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../dist/assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../dist/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+ {% endblock %}
