@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'usuaris',
     'comandes',
     'articles',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -118,7 +119,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+PAYPAL_TEST = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 

@@ -24,7 +24,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#"> Inici </a></li>
+            <li><a href="{% url "articles:index" %}"> Inici </a></li>
             <li><a href="#"> Recomanats </a></li>
             <li><a href="#"> Últims </a></li>
             <li><a href="#"> Contacte </a></li>
@@ -62,17 +62,15 @@
         <div class="row add">
           <div class="col-xs-12 disc-usr">
               
-                 {% for disc in discos_meus %}
+                 {% for articles in comandes %}
                       <div class="item item-usr"> 
-                          <img src="{% if disc.image %}{{ disc.image.url }}{% endif%}" class="img-responsive hq" >
-                          <div class="remove"><a class="editting" href="{% url "discos:eliminar_disc" disc.pk %}"><small><span class="glyphicon glyphicon-remove" title="Esborrar disc" ></span></small></a></div>
-                         
-                          <div class="preu" id="preu1">{{ disc.preu }} € </div>
+                          <img src="{% if articles.article.imatge %}{{ articles.article.imatge.url }}{% endif%}" class="img-responsive hq" >
+                          <div class="remove"><a class="editting" href="{% url "usuaris:eliminar_comanda" articles.pk %}"><small><span class="glyphicon glyphicon-remove" title="Esborrar comanda" ></span></small></a></div>
+                          <div class="preu" id="preu1">{{ articles.article.preu }} € </div>
                           <div class="item-body">
-                            <div class="titol" id="titol1"><a href="{% url "discos:vinil_informacio" disc.pk %}"><h6>{{ disc.titol }}</h6></a></div>
+                            <div class="titl" id="titol1"><a href="#"><h6>{{ articles.article.nom }}</h6></a></div>
                             <div class="user">
                               <div class="img-user"><a href=""><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div>
-                              <div class="name-user"><a class="editting" href="{% url "discos:editar_disc" disc.pk %}"><small>Editar</small></a></div>
                             </div>
                           </div>
                           <button class="prova btn btn-success button1" type="submit" value="Submit" data-toggle="modal" data-target="#myModal">Venut</button>

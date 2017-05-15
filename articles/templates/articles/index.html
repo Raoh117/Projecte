@@ -37,11 +37,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Inici</a></li>
+            <li class="active"><a href="{% url "articles:index"%}">Inici</a></li>
             <li><a href="#"> Consoles </a></li>
             <li><a href="#"> Videojocs </a></li>
             <li><a href="#"> Accesoris </a></li>
-            {% if user.Usuari.admin %}<li><a href="{% url "articles:crear_article" %}"> Crear Article </a></li>{% endif %}
+            <li><a href="{% url "articles:crear_article" %}"> Crear Article </a></li>
             <li><div class="input-group input-header">
             <!--formulari - METHOD:GET --> 
             <form action=="#"> " method="get" >

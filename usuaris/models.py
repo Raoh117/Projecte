@@ -12,7 +12,6 @@ class Usuari (models.Model):
     direccio=models.CharField(max_length=200,)
     # 1 to 1 - model User
     usuari = models.OneToOneField( User )
-    
     image = models.ImageField(upload_to='usuaris',
                               blank=True)
 

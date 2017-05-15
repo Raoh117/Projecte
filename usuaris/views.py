@@ -7,6 +7,7 @@ from django.forms import modelform_factory
 from .models import Usuari
 from django.conf import settings
 from articles.models import Article
+from comandes.models import Comanda, Carret
 from django.db.models import Q
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
@@ -32,7 +33,7 @@ def crear_usuari(request, perfil_id=None):
                 password = form.cleaned_data['password']
                 #creem el nou usuari
                 nou_usuari = User.objects.create_user( username = email, email = email, password = password )
-                
+                nou_carro = Carret.objects.create(usuari = nou_usuari)
                 messages.info(request,"Usuari creat correctament")
                 return redirect('articles:index')
     else:
@@ -87,8 +88,22 @@ def logout(request):
     
     
 def menu_usuari(request):
-    articles_comprats= request.user.usuari.articles_comprats.all()
-    
-#    venuts = request.user.perfil.discos_oferta.filter(venut=True)
-    ctx={"articles_comprats":articles_comprats}        
+    carritu = Carret.objects.get(usuari=request.user)
+    # comandes = Comanda.objects.filter(carro=carritu)
+    comandes = Comanda.objects.filter(carro=carritu)
+    ctx={"comandes":comandes}        
     return render(request,"menu_usuari.html",ctx)
+    
+    
+def afegir_al_carritu(request, id_article):
+    carritu = Carret.objects.get(usuari=request.user)
+    article_demanat=Article.objects.get(id=id_article)
+    nova_comanda = Comanda.objects.create(carro = carritu, article = article_demanat, preu = article_demanat.preu, quantitat = 1)
+    # comandes = Comanda.objects.filter(carro=carritu)
+    comandes = Comanda.objects.all()
+    return redirect("usuaris:menu_usuari") 
+    
+def eliminar_comanda(request,id_comanda):
+    comanda = Comanda.objects.get(id=id_comanda);
+    comanda.delete()
+    return redirect('usuaris:menu_usuari')

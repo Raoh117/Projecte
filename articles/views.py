@@ -88,3 +88,5 @@ def cercador(request):
                                 { "llista_articles": results,
                                    "query": query }
                                )
+                               
+                               

@@ -14,7 +14,7 @@ body{
 }
 
 #alerta{
-    background-image: url("/dist/images/alert-icon.png");
+    background-image: url("/dist/images/Game-Over.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
