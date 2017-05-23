@@ -43,3 +43,7 @@ label:hover ~ label {
 input[type="radio"]:checked ~ label {
   color: orange;
 }
+
+.dreta{
+  width: 150px;
+}

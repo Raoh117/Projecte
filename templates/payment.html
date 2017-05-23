@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+ 
+ {% block title %} El teu menu {% endblock %}
+ 
+{% block extra-head %} 
+  {% load static %}
+    <script src="{% static "js/index.js" %}"></script>
+{% endblock %}
+
+{% block content  %}
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Vynilshare</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url "articles:index" %}"> Inici </a></li>
+            <li><a href="#"> Recomanats </a></li>
+            <li><a href="#"> Últims </a></li>
+            <li><a href="#"> Contacte </a></li>
+          </ul>
+          <div id="user">
+                <ul class="nav navbar-nav">
+                      <div class="btn-group">
+                        <div type="button" class="btn dropdown-toggle"data-toggle="dropdown"><p>{{user}}</p> </div>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="{% url "usuaris:menu_usuari" %}">El teu menu</a></li>
+                          <li><a href="{% url "usuaris:modificar_perfil" %}">Modificar perfil</a></li>
+                          <li class="divider"></li>
+                          <li><a href="{% url "usuaris:logout" %}">Logout</a></li>
+                        </ul>
+                      </div>
+                </ul>
+          </div>
+<!--INFORMACIÓ DEL VINIL -->
+<div class="container theme-showcase info-usr" role="main">
+    <div id="contingut-reco">
+     <div class="container-fluid">
+                    <div class="row"> <!-- Give this div your desired background color -->
+                        <div class="container1">
+                            <div class="desc">
+                                <div id="content-login">
+                                    <p>PREU:{{preu.preu_total}}</p>
+                                    {{form.render}}
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+    </div>
+    </div>
+</div>
+ 
+
+{% endblock %}

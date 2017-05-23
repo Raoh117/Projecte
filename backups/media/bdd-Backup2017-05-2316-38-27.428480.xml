@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0">
+  <object model="contenttypes.contenttype" pk="1">
+    <field name="app_label" type="CharField">admin</field>
+    <field name="model" type="CharField">logentry</field>
+  </object>
+  <object model="contenttypes.contenttype" pk="2">
+    <field name="app_label" type="CharField">auth</field>
+    <field name="model" type="CharField">permission</field>
+  </object>
+  <object model="contenttypes.contenttype" pk="3">
+    <field name="app_label" type="CharField">auth</field>
+    <field name="model" type="CharField">group</field>
+  </object>
+  <object model="contenttypes.contenttype" pk="4">
+    <field name="app_label" type="CharField">auth</field>
+    <field name="model" type="CharField">user</field>
+  </object>
+  <object model="contenttypes.contenttype" pk="5">
+    <field name="app_label" type="CharField">contenttypes</field>
+    <field name="model" type="CharField">contenttype</field>
+  </object>
+  <object model="contenttypes.contenttype" pk="6">
+    <field name="app_label" type="CharField">sessions</field>
+    <field name="model" type="CharField">session</field>
+  </object>
+  <object model="contenttypes.contenttype" pk="7">
+    <field name="app_label" type="CharField">usuaris</field>
+    <field name="model" type="CharField">usuari</field>
+  </object>
+  <object model="contenttypes.contenttype" pk="8">
+    <field name="app_label" type="CharField">comandes</field>
+    <field name="model" type="CharField">comanda</field>
+  </object>
+  <object model="contenttypes.contenttype" pk="9">
+    <field name="app_label" type="CharField">comandes</field>
+    <field name="model" type="CharField">carret</field>
+  </object>
+  <object model="contenttypes.contenttype" pk="10">
+    <field name="app_label" type="CharField">articles</field>
+    <field name="model" type="CharField">article</field>
+  </object>
+  <object model="contenttypes.contenttype" pk="11">
+    <field name="app_label" type="CharField">ipn</field>
+    <field name="model" type="CharField">paypalipn</field>
+  </object>
+  <object model="contenttypes.contenttype" pk="14">
+    <field name="app_label" type="CharField">usuaris</field>
+    <field name="model" type="CharField">paypal</field>
+  </object>
+  <object model="sessions.session" pk="co9n3zjblibzn4moife4x38uq798laze">
+    <field name="session_data" type="TextField">MmMzOGRiMzM2ZTU4NzMzNmQzNmU3ZjNjMGI2YWQ5MTE5ZmU5NmZmZjp7Il9hdXRoX3VzZXJfaGFzaCI6IjQxYTE5NGJlYjI3MzdkNTU5YjNjN2MwYjg4ZDAwNDE4NDBjOTI1YzYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI3In0=</field>
+    <field name="expire_date" type="DateTimeField">2017-06-06T15:36:11.394157+00:00</field>
+  </object>
+  <object model="sessions.session" pk="f3tqmjdtf3z9p8dx78u3jjki1rldd3xz">
+    <field name="session_data" type="TextField">ZWU2ZjhkZmFhMzQxNTY4YWU3N2VlZTg0YTU4NmY4Y2QwMDA4NDczZTp7Il9hdXRoX3VzZXJfaGFzaCI6IjZiM2FhZmQ5N2MzMzdlY2ZkMGY2MGNkNDM5ZDc0NDgxNDgxOTkwYzEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=</field>
+    <field name="expire_date" type="DateTimeField">2017-06-02T10:50:02.079335+00:00</field>
+  </object>
+  <object model="sessions.session" pk="nmhrji69ncc9ijzi957zmvs1cg4hi6cw">
+    <field name="session_data" type="TextField">ZWU2ZjhkZmFhMzQxNTY4YWU3N2VlZTg0YTU4NmY4Y2QwMDA4NDczZTp7Il9hdXRoX3VzZXJfaGFzaCI6IjZiM2FhZmQ5N2MzMzdlY2ZkMGY2MGNkNDM5ZDc0NDgxNDgxOTkwYzEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=</field>
+    <field name="expire_date" type="DateTimeField">2017-06-01T09:47:48.358806+00:00</field>
+  </object>
+  <object model="comandes.comanda" pk="31">
+    <field name="carro" rel="ManyToOneRel" to="comandes.carret">1</field>
+    <field name="article" rel="ManyToOneRel" to="articles.article">9</field>
+    <field name="preu" type="DecimalField">50.00</field>
+    <field name="quantitat" type="IntegerField">1</field>
+    <field name="data" type="DateField">2017-05-19</field>
+  </object>
+  <object model="comandes.comanda" pk="32">
+    <field name="carro" rel="ManyToOneRel" to="comandes.carret">1</field>
+    <field name="article" rel="ManyToOneRel" to="articles.article">10</field>
+    <field name="preu" type="DecimalField">30.00</field>
+    <field name="quantitat" type="IntegerField">1</field>
+    <field name="data" type="DateField">2017-05-22</field>
+  </object>
+  <object model="comandes.comanda" pk="33">
+    <field name="carro" rel="ManyToOneRel" to="comandes.carret">2</field>
+    <field name="article" rel="ManyToOneRel" to="articles.article">9</field>
+    <field name="preu" type="DecimalField">50.00</field>
+    <field name="quantitat" type="IntegerField">1</field>
+    <field name="data" type="DateField">2017-05-22</field>
+  </object>
+  <object model="articles.article" pk="1">
+    <field name="nom" type="CharField">Dark Souls 3</field>
+    <field name="consola" type="CharField">ps4</field>
+    <field name="esconsola" type="BooleanField">False</field>
+    <field name="preu" type="DecimalField">40.00</field>
+    <field name="PEGI" type="CharField">16</field>
+    <field name="stock" type="IntegerField">5</field>
+    <field name="companyia" type="CharField">From Software</field>
+    <field name="imatge" type="FileField">articles/amazing-dark-souls-3-picture.jpg</field>
+    <field name="coleccionista" type="BooleanField">True</field>
+    <field name="detalls" type="TextField">You Die</field>
+    <field name="video" type="CharField"></field>
+    <field name="esaccesori" type="BooleanField">False</field>
+  </object>
+  <object model="articles.article" pk="3">
+    <field name="nom" type="CharField">Bob esponja vs Hitler</field>
+    <field name="consola" type="CharField">Wii</field>
+    <field name="esconsola" type="BooleanField">False</field>
+    <field name="preu" type="DecimalField">50.00</field>
+    <field name="PEGI" type="CharField">18</field>
+    <field name="stock" type="IntegerField">100</field>
+    <field name="companyia" type="CharField">Nintendo</field>
+    <field name="imatge" type="FileField">articles/atrabob_VpOzRC5.jpg</field>
+    <field name="coleccionista" type="BooleanField">True</field>
+    <field name="detalls" type="TextField">Pues eso</field>
+    <field name="video" type="CharField">https://www.youtube.com/embed/iCa6o_zzZXs</field>
+    <field name="esaccesori" type="BooleanField">False</field>
+  </object>
+  <object model="articles.article" pk="4">
+    <field name="nom" type="CharField">PUG</field>
+    <field name="consola" type="CharField">PUG</field>
+    <field name="esconsola" type="BooleanField">True</field>
+    <field name="preu" type="DecimalField">300.00</field>
+    <field name="PEGI" type="CharField">3</field>
+    <field name="stock" type="IntegerField">150</field>
+    <field name="companyia" type="CharField">PUG company</field>
+    <field name="imatge" type="FileField">articles/CR_1011008_cuando_intentas_imitar_la_foto_que_sale_en_tu_dni_falso.jpg</field>
+    <field name="coleccionista" type="BooleanField">True</field>
+    <field name="detalls" type="TextField">En veritat es un gos</field>
+    <field name="video" type="CharField"></field>
+    <field name="esaccesori" type="BooleanField">False</field>
+  </object>
+  <object model="articles.article" pk="9">
+    <field name="nom" type="CharField">Zelda Breath of the Wild</field>
+    <field name="consola" type="CharField">Wii U</field>
+    <field name="esconsola" type="BooleanField">False</field>
+    <field name="preu" type="DecimalField">50.00</field>
+    <field name="PEGI" type="CharField">16</field>
+    <field name="stock" type="IntegerField">50</field>
+    <field name="companyia" type="CharField">Nintendo</field>
+    <field name="imatge" type="FileField">articles/botwPortada_yd63Udp.jpg</field>
+    <field name="coleccionista" type="BooleanField">True</field>
+    <field name="detalls" type="TextField">The Legend of Zelda: Breath of the Wild es la nueva aventura de acción de Nintendo para Wii U y Nintendo Switch que nos presenta el título más ambicioso de la saga con un mundo abierto por explorar y en el que realizar todo tipo de acciones como escalar además de otras clásicas como nadar o montar a caballo. Link despierta tras un profundo sueño de 100 años en un misterioso templo en el reino de Hyrule; junto a él, deberemos descubrir su pasado mientras escuchamos una voz que nos incita a enfrentarnos a un malvado ser que provocó el llamado cataclismo: Ganon.</field>
+    <field name="video" type="CharField">https://www.youtube.com/embed/zw47_q9wbBE</field>
+    <field name="esaccesori" type="BooleanField">False</field>
+  </object>
+  <object model="articles.article" pk="10">
+    <field name="nom" type="CharField">DOOM</field>
+    <field name="consola" type="CharField">PS4</field>
+    <field name="esconsola" type="BooleanField">False</field>
+    <field name="preu" type="DecimalField">30.00</field>
+    <field name="PEGI" type="CharField">18</field>
+    <field name="stock" type="IntegerField">10</field>
+    <field name="companyia" type="CharField">id &amp; bethesda</field>
+    <field name="imatge" type="FileField">articles/doom_caratula.jpg</field>
+    <field name="coleccionista" type="BooleanField">True</field>
+    <field name="detalls" type="TextField">El terror y la acción de la serie FPS de id Software retornan gracias a Bethesda en forma de reboot para PC, PlayStation 4 y Xbox One. La acción frenética, la velocidad y el gore vuelven a ser los protagonistas en esta nueva entrega de la saga del aclamado shooter en primera persona, en el que volveremos a cazar a los demonios a lo largo de una intensa campaña. Además, como creador del formato "deathmatch" en los videojuegos, DOOM vuelve otra vez con un potente modo multijugador y un editor de juego que permitirá crear y compartir contenidos con el resto del mundo.</field>
+    <field name="video" type="CharField">https://www.youtube.com/embed/kjIVkl34Vig</field>
+    <field name="esaccesori" type="BooleanField">False</field>
+  </object>
+  <object model="articles.article" pk="11">
+    <field name="nom" type="CharField">Nier Automata</field>
+    <field name="consola" type="CharField">PS4</field>
+    <field name="esconsola" type="BooleanField">False</field>
+    <field name="preu" type="DecimalField">49.00</field>
+    <field name="PEGI" type="CharField">3</field>
+    <field name="stock" type="IntegerField">10</field>
+    <field name="companyia" type="CharField">Square Enix</field>
+    <field name="imatge" type="FileField">articles/Nier_Automata_cover_art.jpg</field>
+    <field name="coleccionista" type="BooleanField">True</field>
+    <field name="detalls" type="TextField">NieR: Automata, desarrollado por Platinum Games y distribuido por Square Enix para PlayStation 4 y PC, es la secuela de Nier, un RPG de acción de la pasada generación ambientado en un mundo fantástico lleno de misterios.</field>
+    <field name="video" type="CharField">https://www.youtube.com/embed/gIUaVTDLdG0</field>
+    <field name="esaccesori" type="BooleanField">False</field>
+  </object>
+  <object model="auth.permission" pk="1">
+    <field name="name" type="CharField">Can add log entry</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">1</field>
+    <field name="codename" type="CharField">add_logentry</field>
+  </object>
+  <object model="auth.permission" pk="2">
+    <field name="name" type="CharField">Can change log entry</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">1</field>
+    <field name="codename" type="CharField">change_logentry</field>
+  </object>
+  <object model="auth.permission" pk="3">
+    <field name="name" type="CharField">Can delete log entry</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">1</field>
+    <field name="codename" type="CharField">delete_logentry</field>
+  </object>
+  <object model="auth.permission" pk="4">
+    <field name="name" type="CharField">Can add permission</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">2</field>
+    <field name="codename" type="CharField">add_permission</field>
+  </object>
+  <object model="auth.permission" pk="5">
+    <field name="name" type="CharField">Can change permission</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">2</field>
+    <field name="codename" type="CharField">change_permission</field>
+  </object>
+  <object model="auth.permission" pk="6">
+    <field name="name" type="CharField">Can delete permission</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">2</field>
+    <field name="codename" type="CharField">delete_permission</field>
+  </object>
+  <object model="auth.permission" pk="7">
+    <field name="name" type="CharField">Can add group</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">3</field>
+    <field name="codename" type="CharField">add_group</field>
+  </object>
+  <object model="auth.permission" pk="8">
+    <field name="name" type="CharField">Can change group</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">3</field>
+    <field name="codename" type="CharField">change_group</field>
+  </object>
+  <object model="auth.permission" pk="9">
+    <field name="name" type="CharField">Can delete group</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">3</field>
+    <field name="codename" type="CharField">delete_group</field>
+  </object>
+  <object model="auth.permission" pk="10">
+    <field name="name" type="CharField">Can add user</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">4</field>
+    <field name="codename" type="CharField">add_user</field>
+  </object>
+  <object model="auth.permission" pk="11">
+    <field name="name" type="CharField">Can change user</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">4</field>
+    <field name="codename" type="CharField">change_user</field>
+  </object>
+  <object model="auth.permission" pk="12">
+    <field name="name" type="CharField">Can delete user</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">4</field>
+    <field name="codename" type="CharField">delete_user</field>
+  </object>
+  <object model="auth.permission" pk="13">
+    <field name="name" type="CharField">Can add content type</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">5</field>
+    <field name="codename" type="CharField">add_contenttype</field>
+  </object>
+  <object model="auth.permission" pk="14">
+    <field name="name" type="CharField">Can change content type</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">5</field>
+    <field name="codename" type="CharField">change_contenttype</field>
+  </object>
+  <object model="auth.permission" pk="15">
+    <field name="name" type="CharField">Can delete content type</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">5</field>
+    <field name="codename" type="CharField">delete_contenttype</field>
+  </object>
+  <object model="auth.permission" pk="16">
+    <field name="name" type="CharField">Can add session</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">6</field>
+    <field name="codename" type="CharField">add_session</field>
+  </object>
+  <object model="auth.permission" pk="17">
+    <field name="name" type="CharField">Can change session</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">6</field>
+    <field name="codename" type="CharField">change_session</field>
+  </object>
+  <object model="auth.permission" pk="18">
+    <field name="name" type="CharField">Can delete session</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">6</field>
+    <field name="codename" type="CharField">delete_session</field>
+  </object>
+  <object model="auth.permission" pk="19">
+    <field name="name" type="CharField">Can add usuari</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">7</field>
+    <field name="codename" type="CharField">add_usuari</field>
+  </object>
+  <object model="auth.permission" pk="20">
+    <field name="name" type="CharField">Can change usuari</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">7</field>
+    <field name="codename" type="CharField">change_usuari</field>
+  </object>
+  <object model="auth.permission" pk="21">
+    <field name="name" type="CharField">Can delete usuari</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">7</field>
+    <field name="codename" type="CharField">delete_usuari</field>
+  </object>
+  <object model="auth.permission" pk="22">
+    <field name="name" type="CharField">Can add comanda</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">8</field>
+    <field name="codename" type="CharField">add_comanda</field>
+  </object>
+  <object model="auth.permission" pk="23">
+    <field name="name" type="CharField">Can change comanda</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">8</field>
+    <field name="codename" type="CharField">change_comanda</field>
+  </object>
+  <object model="auth.permission" pk="24">
+    <field name="name" type="CharField">Can delete comanda</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">8</field>
+    <field name="codename" type="CharField">delete_comanda</field>
+  </object>
+  <object model="auth.permission" pk="25">
+    <field name="name" type="CharField">Can add carret</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">9</field>
+    <field name="codename" type="CharField">add_carret</field>
+  </object>
+  <object model="auth.permission" pk="26">
+    <field name="name" type="CharField">Can change carret</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">9</field>
+    <field name="codename" type="CharField">change_carret</field>
+  </object>
+  <object model="auth.permission" pk="27">
+    <field name="name" type="CharField">Can delete carret</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">9</field>
+    <field name="codename" type="CharField">delete_carret</field>
+  </object>
+  <object model="auth.permission" pk="28">
+    <field name="name" type="CharField">Can add article</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">10</field>
+    <field name="codename" type="CharField">add_article</field>
+  </object>
+  <object model="auth.permission" pk="29">
+    <field name="name" type="CharField">Can change article</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">10</field>
+    <field name="codename" type="CharField">change_article</field>
+  </object>
+  <object model="auth.permission" pk="30">
+    <field name="name" type="CharField">Can delete article</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">10</field>
+    <field name="codename" type="CharField">delete_article</field>
+  </object>
+  <object model="auth.permission" pk="31">
+    <field name="name" type="CharField">Can add PayPal IPN</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">11</field>
+    <field name="codename" type="CharField">add_paypalipn</field>
+  </object>
+  <object model="auth.permission" pk="32">
+    <field name="name" type="CharField">Can change PayPal IPN</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">11</field>
+    <field name="codename" type="CharField">change_paypalipn</field>
+  </object>
+  <object model="auth.permission" pk="33">
+    <field name="name" type="CharField">Can delete PayPal IPN</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">11</field>
+    <field name="codename" type="CharField">delete_paypalipn</field>
+  </object>
+  <object model="auth.permission" pk="40">
+    <field name="name" type="CharField">Can add paypal</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">14</field>
+    <field name="codename" type="CharField">add_paypal</field>
+  </object>
+  <object model="auth.permission" pk="41">
+    <field name="name" type="CharField">Can change paypal</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">14</field>
+    <field name="codename" type="CharField">change_paypal</field>
+  </object>
+  <object model="auth.permission" pk="42">
+    <field name="name" type="CharField">Can delete paypal</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype">14</field>
+    <field name="codename" type="CharField">delete_paypal</field>
+  </object>
+  <object model="auth.user" pk="1">
+    <field name="password" type="CharField">pbkdf2_sha256$24000$fwJqfaZCRTfO$Y652jem7V2Ah8bJCu1GdKX/Hn8vVxtMvuY5Spc4uLKg=</field>
+    <field name="last_login" type="DateTimeField">2017-05-15T14:34:34.008718+00:00</field>
+    <field name="is_superuser" type="BooleanField">False</field>
+    <field name="username" type="CharField">abet@abet.com</field>
+    <field name="first_name" type="CharField"></field>
+    <field name="last_name" type="CharField"></field>
+    <field name="email" type="CharField">abet@abet.com</field>
+    <field name="is_staff" type="BooleanField">False</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="date_joined" type="DateTimeField">2017-05-08T14:12:36.132727+00:00</field>
+    <field name="groups" rel="ManyToManyRel" to="auth.group"></field>
+    <field name="user_permissions" rel="ManyToManyRel" to="auth.permission"></field>
+  </object>
+  <object model="auth.user" pk="2">
+    <field name="password" type="CharField">pbkdf2_sha256$24000$jEcsVoBy0N7N$VIf5LbX23aTjjCP42GLfLyx2TMopboarV8cMtktu8Nk=</field>
+    <field name="last_login" type="DateTimeField"><None></None></field>
+    <field name="is_superuser" type="BooleanField">True</field>
+    <field name="username" type="CharField">abet</field>
+    <field name="first_name" type="CharField"></field>
+    <field name="last_name" type="CharField"></field>
+    <field name="email" type="CharField">albertredal@gmail.com</field>
+    <field name="is_staff" type="BooleanField">True</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="date_joined" type="DateTimeField">2017-05-15T14:03:48.270901+00:00</field>
+    <field name="groups" rel="ManyToManyRel" to="auth.group"></field>
+    <field name="user_permissions" rel="ManyToManyRel" to="auth.permission"></field>
+  </object>
+  <object model="auth.user" pk="3">
+    <field name="password" type="CharField">pbkdf2_sha256$24000$2GI1WYm6Fib7$guQidwtfNQN4CoslxQ49YqKFeg0Gng4vDtChlfWvbq0=</field>
+    <field name="last_login" type="DateTimeField">2017-05-15T14:09:33.330145+00:00</field>
+    <field name="is_superuser" type="BooleanField">False</field>
+    <field name="username" type="CharField">barbablanca117minene@gmail.com</field>
+    <field name="first_name" type="CharField"></field>
+    <field name="last_name" type="CharField"></field>
+    <field name="email" type="CharField">barbablanca117minene@gmail.com</field>
+    <field name="is_staff" type="BooleanField">False</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="date_joined" type="DateTimeField">2017-05-15T14:09:15.960302+00:00</field>
+    <field name="groups" rel="ManyToManyRel" to="auth.group"></field>
+    <field name="user_permissions" rel="ManyToManyRel" to="auth.permission"></field>
+  </object>
+  <object model="auth.user" pk="4">
+    <field name="password" type="CharField">pbkdf2_sha256$24000$VTtjBvc9D1LE$b67W/g/7ClKUWQ0M2NW9BF1onWrkw5D5Oc+VMnr8BrU=</field>
+    <field name="last_login" type="DateTimeField">2017-05-22T13:20:27.045376+00:00</field>
+    <field name="is_superuser" type="BooleanField">False</field>
+    <field name="username" type="CharField">1@gmail.com</field>
+    <field name="first_name" type="CharField">Jack</field>
+    <field name="last_name" type="CharField">elsimple</field>
+    <field name="email" type="CharField">1@gmail.com</field>
+    <field name="is_staff" type="BooleanField">False</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="date_joined" type="DateTimeField">2017-05-15T14:42:44.475597+00:00</field>
+    <field name="groups" rel="ManyToManyRel" to="auth.group"></field>
+    <field name="user_permissions" rel="ManyToManyRel" to="auth.permission"></field>
+  </object>
+  <object model="auth.user" pk="5">
+    <field name="password" type="CharField">pbkdf2_sha256$24000$P0tiH6030Fdj$dcluyyvYvqPRIhrHfOvov8c8OKvNheT9hjL1c8fydRs=</field>
+    <field name="last_login" type="DateTimeField">2017-05-18T14:51:52.797724+00:00</field>
+    <field name="is_superuser" type="BooleanField">False</field>
+    <field name="username" type="CharField">2@gmail.com</field>
+    <field name="first_name" type="CharField"></field>
+    <field name="last_name" type="CharField"></field>
+    <field name="email" type="CharField">2@gmail.com</field>
+    <field name="is_staff" type="BooleanField">False</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="date_joined" type="DateTimeField">2017-05-18T14:41:49.377349+00:00</field>
+    <field name="groups" rel="ManyToManyRel" to="auth.group"></field>
+    <field name="user_permissions" rel="ManyToManyRel" to="auth.permission"></field>
+  </object>
+  <object model="auth.user" pk="6">
+    <field name="password" type="CharField">pbkdf2_sha256$24000$xb79n7RLZs7W$vwY0KJfLxqbixBFLZ10ZaqI0bq8HgN+CgKA0WRPyuX4=</field>
+    <field name="last_login" type="DateTimeField"><None></None></field>
+    <field name="is_superuser" type="BooleanField">False</field>
+    <field name="username" type="CharField">3@gmail.com</field>
+    <field name="first_name" type="CharField"></field>
+    <field name="last_name" type="CharField"></field>
+    <field name="email" type="CharField">3@gmail.com</field>
+    <field name="is_staff" type="BooleanField">False</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="date_joined" type="DateTimeField">2017-05-18T14:43:45.498541+00:00</field>
+    <field name="groups" rel="ManyToManyRel" to="auth.group"></field>
+    <field name="user_permissions" rel="ManyToManyRel" to="auth.permission"></field>
+  </object>
+  <object model="auth.user" pk="7">
+    <field name="password" type="CharField">pbkdf2_sha256$24000$EBjIBJhUnsDS$WngMuOVjCi7UHXylW4vzPSdxRtMJe5lBWnmaKo5j/eo=</field>
+    <field name="last_login" type="DateTimeField">2017-05-23T15:36:11.381379+00:00</field>
+    <field name="is_superuser" type="BooleanField">False</field>
+    <field name="username" type="CharField">readyspartan117@gmail.com</field>
+    <field name="first_name" type="CharField"></field>
+    <field name="last_name" type="CharField"></field>
+    <field name="email" type="CharField">readyspartan117@gmail.com</field>
+    <field name="is_staff" type="BooleanField">False</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="date_joined" type="DateTimeField">2017-05-22T14:27:09.279284+00:00</field>
+    <field name="groups" rel="ManyToManyRel" to="auth.group"></field>
+    <field name="user_permissions" rel="ManyToManyRel" to="auth.permission"></field>
+  </object>
+  <object model="usuaris.usuari" pk="4">
+    <field name="admin" type="BooleanField">False</field>
+    <field name="direccio" type="CharField">Calle falsa 1234</field>
+    <field name="usuari" rel="OneToOneRel" to="auth.user">4</field>
+    <field name="image" type="FileField"></field>
+  </object>
+  <object model="usuaris.usuari" pk="7">
+    <field name="admin" type="BooleanField">True</field>
+    <field name="direccio" type="CharField"></field>
+    <field name="usuari" rel="OneToOneRel" to="auth.user">7</field>
+    <field name="image" type="FileField"></field>
+  </object>
+  <object model="comandes.carret" pk="1">
+    <field name="usuari" rel="ManyToOneRel" to="auth.user">4</field>
+    <field name="preu_total" type="DecimalField">80.00</field>
+  </object>
+  <object model="comandes.carret" pk="2">
+    <field name="usuari" rel="ManyToOneRel" to="auth.user">7</field>
+    <field name="preu_total" type="DecimalField">50.00</field>
+  </object>
+</django-objects>

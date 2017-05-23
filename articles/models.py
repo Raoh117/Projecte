@@ -17,6 +17,7 @@ class Article(models.Model):
     coleccionista = models.BooleanField(default=False)
     detalls = models.TextField(null=True, blank=True)
     video = models.CharField(max_length=1000, default="")
+    esaccesori = models.BooleanField(default=False)
 
     
     

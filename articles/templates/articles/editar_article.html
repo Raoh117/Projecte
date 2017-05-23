@@ -26,25 +26,64 @@
           </button>
           <a class="navbar-brand" href="#">Vinylshare</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{% url "discos:index" %}">Inici</a></li>
-            <li><a href="{%url "discos:recomanats" %}">Recomanats</a></li>
-            <li><a href="{%url "discos:ultims" %}">Últims</a></li>
-            <li><a href="{%url "discos:contacte" %}">Contacte</a></li>
+            <li class="active"><a href="{% url "articles:index"%}">Inici</a></li>
+            <li><a href="{% url "articles:consoles"%}"> Consoles </a></li>
+            <li><a href="{% url "articles:videojocs"%}"> Videojocs </a></li>
+            <li><a href="{% url "articles:accesoris"%}"> Accesoris </a></li>
+            {% if user.usuari.admin %}<li><a href="{% url "articles:crear_article" %}"> Crear Article </a></li>{% endif %}
+            {% if user.usuari.admin %}<li><a href="{% url "usuaris:crear_admin" %}"> Crear Admin </a></li>{% endif %}
+            <li><div class="input-group input-header">
+            <!--formulari - METHOD:GET --> 
+            <form action="{% url "articles:search" %}" method="get" > 
+                
+                
+                <div class="input-group-btn">
+                    <span class=".glyphicon .glyphicon-search"></span>
+                    <input type="text" id="input-titol" name="q" class="form-control" placeholder="Que busques?" aria-label="...">
+                 <!--SELECCIÓ -->                    
+                </div>
+            </form>
+            <!--Missatge errors -->                 
+             {% if field.errors %}		        	
+    	     <div class="alert alert-danger">
+    	        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    	        <ul>
+    	          {% for error in field.errors%}
+    	              <li>{{ error }}</li>
+    		      {% endfor %}
+                </ul>
+         	</div>
+            {% endif %}
+        		        
+            </div></li>
          </ul>
          
-
+        <!--comprovem autenticació usuari-->
            {% if user.is_authenticated %}
             <div id="user">
-                  <ul class="nav navbar-nav"> 
-                        <li class="active"><a href="{% url "usuaris:menu_usuari" %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{user}}</a></li></ul>
-                    <ul class="nav navbar-nav"> 
-                       <li><a href="{% url "usuaris:logout" %}"><span title="Logout" class="glyphicon glyphicon-off" aria-hidden="true"></span></a></li>
-                  </ul>     
+                <ul class="nav navbar-nav">
+                      <div class="btn-group">
+                        <div type="button" class="btn dropdown-toggle"data-toggle="dropdown"><p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{user}}</p> </div>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="{% url "usuaris:menu_usuari" %}">El teu menu</a></li>
+                          <li><a href="{% url "usuaris:modificar_perfil" %}">Modificar perfil</a></li>
+                          <li class="divider"></li>
+                          <li><a href="{% url "usuaris:logout" %}">Logout</a></li>
+                        </ul>
+                      </div>
+                </ul>
+          </div>
+            {% else %}
+            <div id="user">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url "usuaris:login" %}"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>
+                </ul>
             </div>
-                  
-            </div>
+            {% endif %}
+
+         </div><!--/.nav-collapse -->
             {% else %}
                 <div id="user"><ul class="nav navbar-nav"> <li><a href="{% url "usuaris:login" %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li></ul></div>
             {% endif %}
@@ -68,8 +107,6 @@
                 <!-- List group -->
                   <div class="list-group">
                     <a href="{% url "usuaris:menu_usuari" %}" class="list-group-item"><span class="glyphicon glyphicon-user"></span> Menú</a>
-                    <a href='{% url "usuaris:modificar_perfil" %}' class="list-group-item"><span class="glyphicon glyphicon-cog"></span> Modificar Dades</a>
-                    <a href='{% url "discos:discos_venuts" %}' class="list-group-item"><span class="glyphicon glyphicon-cd"></span> Discos Venuts</a>
                   </div>
               </div>
               </div>
@@ -77,7 +114,7 @@
               
               <div class="row add disc">
                 <div class="contingut-disc">
-                    <div id="titol-puja"><h3>Editar Disc</h3></div>
+                    <div id="titol-puja"><h3>Editar Article</h3></div>
                   
                       <div id="columna-disc">
                         <form id="puja-disc" method ="post" action="" enctype = "multipart/form-data">

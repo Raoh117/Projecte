@@ -29,10 +29,10 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li><a href="{% url "discos:index" %}"> Inici </a></li>
-                <li><a href="{% url "discos:recomanats" %}"> Recomanats </a></li>
-                <li><a href="{% url "discos:ultims" %}"> Últims </a></li>
-                <li><a href="{% url "discos:contacte" %}"> Contacte </a></li>
+                <li><a href="{% url "articles:index" %}"> Inici </a></li>
+                <li><a href="#"> Recomanats </a></li>
+                <li><a href="#"> Últims </a></li>
+                <li><a href="#"> Contacte </a></li>
               </ul>
               <div id="user">
                   <ul class="nav navbar-nav"> 
@@ -49,19 +49,6 @@
         </nav>
         
         <div class="contingut-usr">
-          <div class="row usr-menu">
-            <div class="col-xs-3">
-                <div class="panel panel-default menu-usr">
-                <!-- Default panel contents -->
-                <div class="panel-heading">Menú</div>
-                <!-- List group -->
-                  <div class="list-group">
-                    <a href="{% url "usuaris:menu_usuari" %}" class="list-group-item"><span class="glyphicon glyphicon-user"></span> Menú</a>
-                    <a href='{% url "discos:discos_venuts" %}' class="list-group-item"><span class="glyphicon glyphicon-cd"></span> Discos Venuts</a>
-                  </div>
-                </div>
-              </div>
-          </div>
               
           <div class="row add">
              <div class="infor">

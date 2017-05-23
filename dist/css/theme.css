@@ -13,15 +13,32 @@ body {
 .theme-showcase > p > .btn {
   margin: 5px 0;
 }
+.btn{
+  margin-top: 5px;
+}
+.camp{
+  color: white;
+  text-align: center;
+}
+.texte{
+  padding-bottom: 0px;
+}
 
 .theme-showcase .navbar .container {
   width: auto;
 }
-
+.container1{
+  position: relative;
+  width: auto;
+}
+.right{
+  right: 0px;
+}
 .carousel, .carousel-inner > .item > img {
   width: 100%;
   height: 100%;
 }
+
 
 #header{
   /*background-image: url("../images/vin.png");*/
@@ -34,6 +51,10 @@ body {
 
 #user{
   float:right;
+}
+
+h4{
+  color:white;
 }
 
 .input-group-btn{
@@ -64,6 +85,20 @@ body {
   border-top-right-radius: 4px;
   -webkit-filter: brightness(70%);
   filter: brightness(70%);
+}
+
+.meitatG{
+  width: 40%;
+}
+.meitatP{
+  width: 30%;
+}
+.hr{
+  width:300px;
+  height:350px;
+  padding:0px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 .hq:hover{
@@ -99,32 +134,40 @@ body {
   border-color:skyblue;
 }
 
+.informacio{
+  width: 60%;
+}
+
+.laimatge{
+  width: 30%;
+}
+
+.preugros{
+  width:100%;
+}
 .preu{
    display:flex;
    margin:auto;
    justify-content:center;
    align-items:center;
-   width:40px;
-   height: 40px;
+   width: 60px;
+   height: 60px;
    background:#8904B1; /*#EDA032;*/
    color:white;
    padding-bottom:5px;
    padding-top:5px;
    position: absolute;
    right: 30px; top: 10px;
-   
+   font: 150%;
    border-radius: 200px 200px 200px 200px;
-  -moz-border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
-  border: 0px solid #000000;
+   -moz-border-radius: 200px 200px 200px 200px;
+   -webkit-border-radius: 200px 200px 200px 200px;
+   border: 0px solid #000000;
 }
 
-.preu:hover{
-  background:#FFBD5E;
-  transition: 0.5s;
-  color:#333;
+.row{
+  background-color: white;
 }
-
 .user{
   display:flex;
   flex-direction:row;
@@ -172,15 +215,20 @@ body {
 
 .titol{
    position: absolute;
-   left: 30px; bottom: 10px;
+   bottom: 0px;
+   text-align: center;
+   background: white; /* For browsers that do not support gradients */
+   background: -webkit-linear-gradient(white, black);
+   background: -o-linear-gradient(white, black);
+   background: -moz-linear-gradient(white, black);
+   background: linear-gradient(white, black);
+   width: 100%;
+   opacity:0.8;
 }
 .titol > a{
-  color:#333;
+  color:white;
 }
 
-.titol > a:hover{
-  color:#23527c;
-}
 
 #dina{
   width:120px;
@@ -236,9 +284,12 @@ body {
   justify-content:center;
 }
 
+.row{
+  margin: 10px;
+}
 .menu-usr{
   margin-left:25px;
-  width:220px;
+  width:100vh;
 }
 
 .afegir{
@@ -334,6 +385,9 @@ body {
   margin:auto;
 }
 
+#contingut-reco{
+  width: 70%;
+}
 .page-header{
   display: flex;
   flex-direction: row;
@@ -454,6 +508,9 @@ body {
   color: white;
 }
 
+p{
+  color: white;
+}
 #adalt{
   cursor: pointer;
   background:#F7E2B3;

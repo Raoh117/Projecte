@@ -17,3 +17,4 @@ class Comanda(models.Model):
     quantitat = models.IntegerField()
     data = models.DateField(auto_now=True)
 
+

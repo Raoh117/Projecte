@@ -2,9 +2,10 @@ from django import forms
 
 
 class ArticleForm (forms.Form):
-    imatge = forms.ImageField(label='Selecciona un archivo')
+    imatge = forms.ImageField(label='Selecciona un archiu')
     nom = forms.CharField(max_length=120, label = 'nom')
     consola = forms.CharField(max_length=120,label="consola")
+    esconsola = forms.BooleanField(required=False)
     companyia = forms.CharField(max_length=120,label="companyia")
     stock = forms.IntegerField(label ="stock")
     PEGI_CHOICES = (
@@ -23,4 +24,7 @@ class ArticleForm (forms.Form):
                         ( 'Normal', 'Normal'),
                     )
     coleccionista=forms.CharField(label="coleccionista",max_length=50,widget=forms.Select(choices=COL_CHOICES),)
+    video = forms.CharField(max_length=1000, label = 'video', required=False)
+    esaccesori= forms.BooleanField(required=False)
+    
     
