@@ -18,5 +18,10 @@ $(document).ready(function(){
 	$('.item').mouseout(function(){
 		$(this).children('.titol').hide();
 	})
+	
+	if ($('#comprar').text() == " Comprar carro: 0.00 €") {
+		$('.right').hide();
+		//ho amago
+	}
 })
 

@@ -47,12 +47,9 @@
             <li><div class="input-group input-header">
             <!--formulari - METHOD:GET --> 
             <form action="{% url "articles:search" %}" method="get" > 
-                
-                
                 <div class="input-group-btn">
                     <span class=".glyphicon .glyphicon-search"></span>
                     <input type="text" id="input-titol" name="q" class="form-control" placeholder="Que busques?" aria-label="...">
-                 <!--SELECCIÓ -->                    
                 </div>
             </form>
             <!--Missatge errors -->                 
@@ -66,10 +63,8 @@
                 </ul>
          	</div>
             {% endif %}
-        		        
             </div></li>
          </ul>
-         
         <!--comprovem autenticació usuari-->
            {% if user.is_authenticated %}
             <div id="user">
@@ -92,16 +87,13 @@
                 </ul>
             </div>
             {% endif %}
-
          </div><!--/.nav-collapse -->
         </div> 
      </nav>
      <div class="col-md-4">
-          left content
+
     </div>
     <div class="container theme-showcase" role="main">
-        
-
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <center><h3>NOVETATS</h3></center>
          <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -120,12 +112,10 @@
             <div class="item">
               <a href="{% url "articles:article" 9%}" ><img src="../../../dist/images/BOTW.jpg" alt="Chicago"></a>
             </div>
-        
             <div class="item">
               <img src="../../../dist/images/nier_auomata.jpg" alt="New York">
             </div>
           </div>
-        
           <!-- Left and right controls -->
           <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>

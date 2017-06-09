@@ -103,7 +103,7 @@ def login(request):
                 next = request.GET.get('next')
                 messages.info(request,"Benvingut")
                 return redirect(next or 'articles:index')
-
+                
             else:
                 messages.error(request,"Usuari o password incorrecte o usuari no actiu")
                 
@@ -150,7 +150,7 @@ def eliminar_comanda(request,id_comanda):
 
 def modificar_perfil(request):
     usuariForm = modelform_factory(User,fields=("first_name","last_name","email"))
-    profileForm = modelform_factory(Usuari,fields=('direccio',))
+    profileForm = modelform_factory(Usuari,fields=('direccio','compte'))
     unPerfil = request.user.usuari
     unUsuari = request.user
     
@@ -178,6 +178,7 @@ def modificar_perfil(request):
     formUsuari.fields['last_name'].widget.attrs['placeholder']="Cognoms"
     formUsuari.fields['first_name'].widget.attrs['placeholder']="email"
     formPerfil.fields['direccio'].widget.attrs['placeholder']="direccio"
+    formPerfil.fields['compte'].widget.attrs['placeholder']="compte"
     
     return render(request, 'modificar_usuari.html', {'formPerfil': formPerfil, 
                                                      'formUsuari': formUsuari } )
@@ -188,12 +189,12 @@ from django.shortcuts import render
 from paypal.standard.forms import PayPalPaymentsForm
 
 def view_that_asks_for_money(request, id_carritu):
-    preu=Carret.objects.get(id=id_carritu)
+    carretilla=Carret.objects.get(id=id_carritu)
     usuari = Usuari.objects.get( usuari = request.user )
     # What you want the button to do.
     paypal_dict = {
         "business": request.user.email,
-        "amount": preu.preu_total,
+        "amount": carretilla.preu_total,
         "item_name": "name of the item",
         "invoice": "unique-invoice-id",
         "notify_url": "https://www.example.com" + reverse('paypal-ipn'),
@@ -204,7 +205,7 @@ def view_that_asks_for_money(request, id_carritu):
 
     # Create the instance.
     form = PayPalPaymentsForm(initial=paypal_dict)
-    context = {"form": form, "preu" : preu}
+    context = {"form": form, "carretilla" : carretilla}
     return render(request, "payment.html", context)
     
     
@@ -229,10 +230,22 @@ def show_me_the_money(sender, **kwargs):
         if ipn_obj.custom == "Upgrade all users!":
             #Users.objects.update(paid=True)
             eso = User.objects.get.all()
+            return redirect( 'articles:index')
+            
     else:
         #...
         valid_ipn_received.connect(show_me_the_money)
         
 # -*- coding: utf-8 -*-
 
+
+def pagat(request, id_carritu):
+    carretbuit=Carret.objects.get(id=id_carritu)
+    comandes=Comanda.objects.filter(carro=carretbuit).delete()
+    carretbuit.preu_total = 0
+    carretbuit.save()
+    return redirect('usuaris:menu_usuari')
+    
+     
+     
 

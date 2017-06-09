@@ -14,15 +14,9 @@ class Usuari (models.Model):
     usuari = models.OneToOneField( User )
     image = models.ImageField(upload_to='usuaris',
                               blank=True)
+    compte = models.CharField(max_length=200,)
 
 
-
-class paypal(models.Model):
-    numero=models.IntegerField()
-    caducitat=models.DateField()
-    cvv = models.IntegerField()
-    client = models.ForeignKey(User)
-#class Paypal ( )
 def post_save_user(sender, instance, created, **kwargs):
     if created:
         nou_usuari = Usuari.objects.create(
